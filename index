@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>LIUMAR - Intro & Entertainment</title>
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel=stylesheet>
+<style>*{margin:0;padding:0;box-sizing:border-box}body,html{width:100%;height:100%;background-color:#000;overflow:hidden;position:fixed}#instruction{position:absolute;pointer-events:none;transition:opacity .5s;opacity:0;z-index:5}#instruction svg{width:32px;height:32px;fill:#4a4a4a}#instruction.landscape svg{animation:point-right 1.5s infinite ease-in-out}#instruction.portrait svg{animation:point-up 1.5s infinite ease-in-out}@keyframes point-right{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}@keyframes point-up{0%,100%{transform:rotate(-90deg) translateX(0)}50%{transform:rotate(-90deg) translateX(12px)}}#biliardo{display:block;position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;transition:opacity 1.5s ease}#liumar-content{display:none;opacity:0;transition:opacity 1.5s ease;position:absolute;top:0;left:0;width:100vw;height:100dvh;z-index:1;font-family:'Roboto Mono',monospace;overflow:hidden}#home-btn{position:fixed;top:20px;left:2vw;z-index:15;padding:10px 15px;opacity:0;pointer-events:none;transition:all .5s ease;display:flex;align-items:center;justify-content:center}#home-btn.visible{opacity:1;pointer-events:auto}#home-btn.dark-mode{border-color:#000;color:#000}#home-btn.dark-mode:hover{background-color:#000;color:#fff;box-shadow:0 0 20px rgba(0,0,0,.3)}.hero{position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000;color:#fff;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:center}.title-container{width:100%;padding:0 2vw;display:flex;justify-content:space-between;align-items:center}.title-container span{position:relative}.title-container span:first-child{left:-1.2vw}.hero .title-container span{font-size:14vw;font-weight:700;line-height:1;text-transform:uppercase;display:inline-block;opacity:0;animation:glitch-in .6s step-end forwards,glitch-loop 2.5s step-end infinite}.hero .title-container span:first-child{animation-delay:.1s,0s}.hero .title-container span:nth-child(2){animation-delay:.3s,.5s}.hero .title-container span:nth-child(3){animation-delay:.15s,1.2s}.hero .title-container span:nth-child(4){animation-delay:.4s,.2s}.hero .title-container span:nth-child(5){animation-delay:.2s,.8s}.hero .title-container span:nth-child(6){animation-delay:.5s,1.5s}@keyframes glitch-in{0%{opacity:0;transform:translate(-10px,5px)}15%{opacity:1;transform:translate(5px,-3px);text-shadow:3px 0 #0ff,-3px 0 #f0f}25%{opacity:.2;transform:translate(-5px,2px);text-shadow:none}35%{opacity:1;transform:translate(8px,0);text-shadow:-3px 0 #0ff,3px 0 #f0f}45%{opacity:0;transform:translate(0,0)}55%{opacity:1;transform:translate(-4px,-4px);text-shadow:2px 0 #0ff,-2px 0 #f0f}65%{opacity:.4;transform:translate(3px,3px)}75%{opacity:1;transform:translate(0,0);text-shadow:none}100%{opacity:1;transform:translate(0,0)}}@keyframes glitch-loop{0%,100%,12%,33%,37%,63%,68%,8%,88%,92%{transform:translate(0,0);opacity:1;text-shadow:none}10%{transform:translate(-3px,2px);opacity:.8;text-shadow:2px 0 #0ff,-2px 0 #f0f}35%{transform:translate(4px,-3px);opacity:.4;text-shadow:-2px 0 #0ff,2px 0 #f0f}65%{transform:translate(-4px,-2px);opacity:.2;text-shadow:none}66%{transform:translate(3px,2px);opacity:.9;text-shadow:2px 0 #0ff,-2px 0 #f0f}90%{transform:translate(-2px,3px);opacity:.7;text-shadow:-2px 0 #0ff,2px 0 #f0f}}.panel{position:absolute;top:0;height:100dvh;transform:translateY(100%);transition:transform .8s cubic-bezier(.25, 1, .5, 1);display:flex;justify-content:center;align-items:center;background-size:cover;background-position:center}#game-room{background-image:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.6)),url('Game Room/Copertina.jpg');z-index:2;pointer-events:auto}#cinema{background-image:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.6)),url('Cinema/Copertina.jpg');z-index:2;pointer-events:auto}#restaurant{background-image:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.6)),url('Restaurant/Copertina.jpg');z-index:2;pointer-events:auto}@media (min-width:769px){#game-room{left:0;width:calc((100vw - 12px)/ 3)}#cinema{left:calc((100vw - 12px)/ 3 + 6px);width:calc((100vw - 12px)/ 3)}#restaurant{right:0;width:calc((100vw - 12px)/ 3)}#home-btn{left:1.6vw}.title-container span:last-child{left:-.1vw}}@media (max-width:768px){#game-room{left:0;width:100vw;z-index:2}#cinema{left:0;width:100vw;z-index:3}#restaurant{left:0;width:100vw;z-index:4}}.ghost-btn{background-color:transparent;border:3px solid #fff;color:#fff;padding:15px 30px;font-size:1.2rem;font-family:'Roboto Mono',monospace;font-weight:700;text-transform:uppercase;letter-spacing:2px;cursor:pointer;transition:all .3s ease;backdrop-filter:blur(4px);text-align:center}.ghost-btn:hover{background-color:#fff;color:#000;box-shadow:0 0 20px rgba(255,255,255,.3)}.expanded-view{display:none;opacity:0;transition:opacity .8s ease;position:absolute;top:0;left:0;width:100vw;height:100dvh;background-color:#050505;z-index:20;font-family:'Roboto Mono',monospace;padding:80px 2vw 20px 2vw;box-sizing:border-box}.close-expanded-btn{position:absolute;top:20px;left:2vw;z-index:21;padding:10px 20px;font-size:1rem}.expanded-grid{display:flex;gap:6px;width:100%;height:100%;align-items:stretch}.expanded-col{flex:1;display:flex;flex-direction:column;gap:15px;transition:flex .6s cubic-bezier(.25, 1, .5, 1);cursor:pointer;overflow:hidden}.expanded-poster{flex:1;background-size:cover;background-position:center;transition:all .6s ease}.expanded-info{height:140px;opacity:1;transition:opacity .4s ease;text-align:left;display:flex;flex-direction:column;justify-content:flex-start;min-width:120px}.item-title-wrapper{width:100%;overflow:hidden;margin-bottom:10px}.item-title{font-size:1.1rem;color:#fff;text-transform:uppercase;font-weight:700;letter-spacing:1px;line-height:1.2;white-space:nowrap;display:inline-block}@keyframes text-marquee{0%,15%{transform:translateX(0)}100%,85%{transform:translateX(var(--scroll-amount))}}.item-details{opacity:0;pointer-events:none;display:flex;flex-direction:column;gap:10px;transition:opacity .4s ease}.item-details p{color:#ccc;font-size:.85rem;line-height:1.4;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}.book-btn{padding:8px 15px;font-size:.9rem;align-self:flex-start}.expanded-grid:hover .expanded-col{flex:0.6}.expanded-grid .expanded-col:hover{flex:2.2}.expanded-grid:hover .expanded-col:not(:hover) .expanded-info{opacity:0}.expanded-grid .expanded-col:hover .item-details{opacity:1;pointer-events:auto;transition-delay:0.2s}@media (max-width:768px){.ghost-btn{width:auto;font-size:1rem;padding:12px 20px}.panel .ghost-btn{min-width:200px;padding:12px 30px}.book-btn{width:fit-content}.expanded-grid{flex-direction:column;overflow-y:auto;padding-bottom:150px;gap:60px}.expanded-col{flex:none;height:auto;min-height:350px;justify-content:flex-start}.expanded-poster{flex:none;height:200px}#cinema-expanded .expanded-poster{height:auto;aspect-ratio:2/3}.expanded-info{height:auto;min-height:150px}.expanded-grid:hover .expanded-col{flex:none}.expanded-grid .expanded-col:hover{flex:none;height:auto;min-height:350px}.expanded-grid:hover .expanded-col:not(:hover) .expanded-info{opacity:1}.item-details{opacity:1;pointer-events:auto}.expanded-view{padding-top:100px}}@media (max-height:650px){.item-details p{display:none}}.footer-slide{position:absolute;top:0;left:0;width:100vw;height:100dvh;transform:translateY(100%);transition:transform .8s cubic-bezier(.25, 1, .5, 1);z-index:5;background-color:#f4f1ea;color:#000;display:flex;flex-direction:column;justify-content:space-between;padding-top:15dvh;padding-bottom:8dvh;overflow:hidden}#footer-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}.footer-slide .title-container{position:relative;z-index:1;pointer-events:auto}.footer-slide .title-container span{color:#000;font-size:14vw;font-weight:700;line-height:1;text-transform:uppercase;animation:none;opacity:1;text-shadow:2px 2px 4px rgba(255,255,255,.8)}.footer-bottom-row{width:100%;padding:0 2vw;display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1;pointer-events:none}.footer-disclaimer-block{width:45%;max-width:600px;pointer-events:auto;text-align:left;margin-left:-1.2vw}.footer-disclaimer-text{color:#666;font-weight:700;font-size:.75rem;line-height:1.4}.footer-content{width:360px;pointer-events:auto;text-align:left;margin-right:.1vw}.footer-line{display:block;width:100%;text-align:left;text-align-last:left;white-space:nowrap;line-height:1.3;margin-bottom:5px}.footer-line:last-child{margin-bottom:0}.socials a{color:#000;text-decoration:none;font-weight:700;text-transform:uppercase;transition:opacity .3s ease}.socials a:hover{opacity:.5}.address{color:#333;font-weight:700;font-size:.8rem}.copyright{color:#666;font-weight:700;font-size:.75rem}#menu-btn{position:fixed;top:20px;right:2vw;z-index:15;padding:10px 15px;opacity:0;pointer-events:none;transition:all .5s ease;display:flex;align-items:center;justify-content:center}#menu-btn.visible{opacity:1;pointer-events:auto}#menu-btn.dark-mode{border-color:#000;color:#000}#menu-btn.dark-mode:hover{background-color:#000;color:#fff;box-shadow:0 0 20px rgba(0,0,0,.3)}#menu-popup{position:fixed;top:80px;right:2vw;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);border:2px solid #fff;color:#fff;padding:25px 30px;z-index:60;opacity:0;pointer-events:none;transform:translateY(-10px);transition:all .3s ease;font-family:'Roboto Mono',monospace;min-width:220px}#menu-popup.open{opacity:1;pointer-events:auto;transform:translateY(0)}#menu-popup.dark-mode{background:rgba(244,241,234,.9);border-color:#000;color:#000}.menu-list{list-style:none;display:flex;flex-direction:column;gap:15px;padding:0;margin:0}.menu-item{font-size:1.1rem;font-weight:700;text-transform:uppercase;cursor:pointer;transition:opacity .3s;letter-spacing:1px}.menu-item:hover{opacity:.5}.booking-container{padding:80px .1vw 50px .1vw;width:100%;display:flex;flex-direction:column}.booking-title{color:#fff;text-transform:uppercase;font-size:3vw;font-weight:700;margin-bottom:30px;letter-spacing:2px}.video-trailer-container{width:100%;aspect-ratio:21/9;background-color:#111;border:1px solid #333;margin-bottom:40px;position:relative;display:flex;justify-content:center;align-items:center;background-size:cover;background-position:center}.video-placeholder{color:#fff;font-size:2rem;letter-spacing:5px;text-shadow:0 2px 10px rgba(0,0,0,.8);background:rgba(0,0,0,.4);padding:10px 20px;border-radius:5px}.booking-info-grid{display:flex;gap:40px;margin-bottom:200px}.booking-poster-img{width:300px;aspect-ratio:2/3;background-size:cover;background-position:center;border:2px solid #fff;flex-shrink:0}.booking-details-text{flex-grow:1;color:#ccc;font-size:1.1rem;line-height:1.6;max-width:50%}.booking-details-text strong{font-weight:700;color:#fff}.ticket-price-highlight{margin-top:25px;font-size:1.6rem;color:#fff;font-weight:700;border-top:1px solid #333;padding-top:15px;text-shadow:0 0 15px rgba(255,255,255,.4)}.booking-selectors{display:flex;gap:20px;margin-bottom:40px;justify-content:center}.ghost-input{background-color:transparent;border:2px solid #fff;color:#fff;padding:12px 20px;font-size:1.1rem;font-family:'Roboto Mono',monospace;text-transform:uppercase;cursor:pointer;outline:0;appearance:none;-webkit-appearance:none;border-radius:0}.ghost-input option{background-color:#000;color:#fff}.seat-map-wrapper{width:100%;background:rgba(255,255,255,.03);border:1px solid #333;padding:40px 20px;margin-bottom:40px;overflow-x:auto;display:flex;flex-direction:column;align-items:center}.screen-indicator{width:80%;height:6px;background:#fff;margin-bottom:50px;border-radius:3px;box-shadow:0 5px 20px rgba(0,255,255,.4)}.seat-grid{display:flex;flex-direction:column;gap:12px}.seat-row{display:flex;gap:12px;justify-content:center}.seat{width:35px;height:35px;border:2px solid #555;border-radius:5px 5px 10px 10px;cursor:pointer;transition:all .2s ease}.seat:not(.occupied):hover{border-color:#fff;transform:scale(1.1)}.seat.selected{background-color:#fff;border-color:#fff;box-shadow:0 0 10px rgba(255,255,255,.5)}.seat.occupied{background-color:#222;border-color:#222;cursor:not-allowed;opacity:.5}.seat-aisle{width:35px}.seat-legend{display:flex;gap:30px;margin-top:40px;color:#888;font-size:.9rem;text-transform:uppercase}.legend-item{display:flex;align-items:center;gap:10px}.legend-seat{width:20px;height:20px;cursor:default}.legend-seat:hover{transform:none;border-color:inherit}.booking-checkout{text-align:center;padding-bottom:40px}#booking-total{color:#fff;font-size:2rem;margin-bottom:20px;letter-spacing:1px}@media (max-width:768px){.booking-title{font-size:8vw;text-align:left}.booking-info-grid{flex-direction:column;align-items:flex-start}.booking-poster-img{width:100%;max-width:none}.booking-details-text{max-width:100%;text-align:left}.booking-details-text h3{text-align:left}.ticket-price-highlight{font-size:1.2rem!important;text-align:center!important;display:block!important}.seat-map-wrapper{padding:20px 2vw}.seat{width:4.5vw;height:4.5vw;border-radius:2px 2px 4px 4px}.seat-aisle{width:4.5vw}.seat-row{gap:1.5vw}.seat-grid{gap:1.5vw}.seat-legend{gap:15px;flex-wrap:wrap;justify-content:center}.legend-seat{width:15px;height:15px}.ghost-input{width:100%;text-align:center}.booking-selectors{flex-direction:column;width:100%}.booking-checkout{text-align:center}.footer-bottom-row{flex-direction:column-reverse;align-items:flex-start;gap:30px;padding:0 4vw}.footer-disclaimer-block{width:100%;margin-left:0}.footer-content{width:100%;padding:0;text-align:left;margin-right:0}}</style>
+</head>
+<body>
+<div id=instruction>
+<svg viewBox="0 0 24 24">
+<polygon points="5,3 19,12 5,21"></polygon>
+</svg>
+</div>
+<canvas id=biliardo></canvas>
+<div id=game-room-expanded class=expanded-view>
+<button class="ghost-btn close-expanded-btn">BACK</button>
+<div class=expanded-grid>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Game Room/Pool Night.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Pool Night</div></div>
+<div class=item-details>
+<p>Professional Pool and Carom tables. Challenge your friends in a classy environment.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Game Room/Bowling.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Bowling</div></div>
+<div class=item-details>
+<p>Ultra-modern lanes with reactive lighting. Guaranteed strikes for the whole evening.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Game Room/Air Hockey.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Air Hockey</div></div>
+<div class=item-details>
+<p>Fast-paced, neon-lit tables for intense 1v1 action.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Game Room/Laser Gallery.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Laser Gallery</div></div>
+<div class=item-details>
+<p>Test your aim in our state-of-the-art virtual shooting range.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Game Room/Foosball.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Foosball</div></div>
+<div class=item-details>
+<p>Classic table football for casual fun or intense tournaments.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Game Room/Darts.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Darts</div></div>
+<div class=item-details>
+<p>Electronic and classic dartboards. Hit the bullseye while sipping a beer.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Game Room/Ping Pong.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Ping Pong</div></div>
+<div class=item-details>
+<p>Indoor Olympic-style tables. Quick reflexes and winning smashes.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Game Room/Mini Golf.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Mini Golf</div></div>
+<div class=item-details>
+<p>18 holes of creative obstacles and glowing neon landscapes.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+</div></div>
+<div id=cinema-expanded class=expanded-view>
+<button class="ghost-btn close-expanded-btn">BACK</button>
+<div class=expanded-grid>
+<div class=expanded-col data-trailer="Cinema/Beyond the Silence-tra.jpg">
+<div class=expanded-poster style="background-image:url('Cinema/Beyond the Silence-loc.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Beyond the Silence</div></div>
+<div class=item-details>
+<p>A breathtaking sci-fi journey into the unknown depths of space. Follow the Orion crew on a mission to the edge of the universe.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col data-trailer="Cinema/Echoes of a Lost World-tra.jpg">
+<div class=expanded-poster style="background-image:url('Cinema/Echoes of a Lost World-loc.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Echoes of a Lost World</div></div>
+<div class=item-details>
+<p>An epic adventure uncovering the ancient secrets of a forgotten civilization hidden deep within an unexplored jungle.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col data-trailer="Cinema/Salt, Pepper & Chaos-tra.jpg">
+<div class=expanded-poster style="background-image:url('Cinema/Salt, Pepper & Chaos-loc.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Salt, Pepper & Chaos</div></div>
+<div class=item-details>
+<p>A hilarious comedy about three chefs competing in the ultimate cook-off. Guaranteed laughs and embarrassing kitchen disasters.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col data-trailer="Cinema/The Last Trace-tra.jpg">
+<div class=expanded-poster style="background-image:url('Cinema/The Last Trace-loc.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>The Last Trace</div></div>
+<div class=item-details>
+<p>A mind-bending thriller where nothing is as it seems. A detective must solve a series of disturbing puzzles left by a brilliant mastermind.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col data-trailer="Cinema/The Wild Pulse-tra.jpg">
+<div class=expanded-poster style="background-image:url('Cinema/The Wild Pulse-loc.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>The Wild Pulse</div></div>
+<div class=item-details>
+<p>Experience the raw power of nature in this stunning documentary exploring the world's most untouched wildlife habitats.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col data-trailer="Cinema/Under the Liumar Stars-tra.jpg">
+<div class=expanded-poster style="background-image:url('Cinema/Under the Liumar Stars-loc.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Under the Liumar Stars</div></div>
+<div class=item-details>
+<p>A heartwarming romance set against a magical night sky. Two strangers find love and meaning during a spectacular meteor shower.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col data-trailer="Cinema/Whispers from the Dark-tra.jpg">
+<div class=expanded-poster style="background-image:url('Cinema/Whispers from the Dark-loc.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Whispers from the Dark</div></div>
+<div class=item-details>
+<p>A terrifying horror experience that will keep you awake at night. An isolated cabin becomes the epicenter of ancient demonic forces.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col data-trailer="Cinema/Zero Impact-tra.jpg">
+<div class=expanded-poster style="background-image:url('Cinema/Zero Impact-loc.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Zero Impact</div></div>
+<div class=item-details>
+<p>A powerful drama about survival and resilience. A community fights back against overwhelming odds to save their dying town.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+</div></div>
+<div id=restaurant-expanded class=expanded-view>
+<button class="ghost-btn close-expanded-btn">BACK</button>
+<div class=expanded-grid>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Restaurant/Charred Oak.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Charred Oak</div></div>
+<div class=item-details>
+<p>Premium steaks and meats grilled to perfection over a wood fire.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Restaurant/Copper Cactus.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Copper Cactus</div></div>
+<div class=item-details>
+<p>Authentic Mexican flavors with a modern, spicy twist.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Restaurant/Grain & Gold.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Grain & Gold</div></div>
+<div class=item-details>
+<p>Artisanal bakery and gourmet sandwiches made with golden crusts.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Restaurant/Iron Griddle.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Iron Griddle</div></div>
+<div class=item-details>
+<p>Classic diner burgers and comfort food cooked right before your eyes.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Restaurant/Neon Umami.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Neon Umami</div></div>
+<div class=item-details>
+<p>Futuristic fusion of Asian street food and high-end sushi.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Restaurant/Rooted Bowls.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Rooted Bowls</div></div>
+<div class=item-details>
+<p>100% plant-based, nutrient-packed bowls full of color and flavor.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Restaurant/Salt & Tide.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Salt & Tide</div></div>
+<div class=item-details>
+<p>Fresh, sustainably sourced seafood straight from the ocean.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+<div class=expanded-col>
+<div class=expanded-poster style="background-image:url('Restaurant/Velvet Whisk.jpg')"></div>
+<div class=expanded-info>
+<div class=item-title-wrapper><div class=item-title>Velvet Whisk</div></div>
+<div class=item-details>
+<p>Decadent desserts and artisanal gelato crafted with passion.</p>
+<button class="ghost-btn book-btn">BOOK</button>
+</div>
+</div>
+</div>
+</div></div>
+<div id=booking-view class=expanded-view style=z-index:30;overflow-y:auto>
+<button class="ghost-btn close-booking-btn" title="Back to Home" style="position:absolute;top:20px;left:2vw;z-index:41;padding:10px 15px;display:flex;align-items:center;justify-content:center">
+<svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+</button>
+<button class=ghost-btn id=booking-menu-btn title=Menu style="position:absolute;top:20px;right:2vw;z-index:41;padding:10px 15px;display:flex;align-items:center;justify-content:center">
+<svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><line x1=3 y1=12 x2=21 y2=12></line><line x1=3 y1=6 x2=21 y2=6></line><line x1=3 y1=18 x2=21 y2=18></line></svg>
+</button>
+<div class=booking-container id=booking-container-scroll>
+<h1 id=booking-title class=booking-title>Movie Title</h1>
+<div class=video-trailer-container id=cinema-trailer>
+<div class=video-placeholder>▶ PLAY TRAILER</div>
+</div>
+<div class=booking-info-grid>
+<div id=booking-poster class=booking-poster-img></div>
+<div class=booking-details-text>
+<h3 style=color:#fff;margin-bottom:15px;text-transform:uppercase;font-size:1.5rem;text-align:left>Movie Details</h3>
+<p id=booking-desc>Description...</p>
+<div style=margin-top:20px;color:#aaa;font-size:.9rem>
+<p><strong>Director:</strong> John Doe</p>
+<p><strong>Duration:</strong> 120 min</p>
+<p><strong>Audio:</strong> English / Original Language</p>
+<p class=ticket-price-highlight>price: 10.00€ / person</p>
+</div>
+</div>
+</div>
+<div class=booking-selectors>
+<select class=ghost-input id=booking-date>
+<option value=Today>Today</option>
+<option value=Tomorrow>Tomorrow</option>
+<option value="Next Day">Next Day</option>
+</select>
+<select class=ghost-input id=booking-time>
+<option value=18:30>18:30</option>
+<option value=21:00>21:00</option>
+<option value=23:15>23:15</option>
+</select>
+</div>
+<div class=seat-map-wrapper>
+<div class=screen-indicator></div>
+<div id=seat-grid class=seat-grid>
+</div>
+<div class=seat-legend>
+<div class=legend-item><div class="seat legend-seat"></div> Available</div>
+<div class=legend-item><div class="seat selected legend-seat"></div> Selected</div>
+<div class=legend-item><div class="seat occupied legend-seat"></div> Occupied</div>
+</div>
+</div>
+<div class=booking-checkout>
+<h2 id=booking-total>0 seats. 0.00€</h2>
+<button class=ghost-btn id=buy-btn>BUY</button>
+</div>
+</div>
+</div>
+<div id=generic-booking-view class=expanded-view style=z-index:30;overflow-y:auto>
+<button class="ghost-btn close-generic-booking-btn" title="Back to Home" style="position:absolute;top:20px;left:2vw;z-index:41;padding:10px 15px;display:flex;align-items:center;justify-content:center">
+<svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+</button>
+<button class=ghost-btn id=generic-booking-menu-btn title=Menu style="position:absolute;top:20px;right:2vw;z-index:41;padding:10px 15px;display:flex;align-items:center;justify-content:center">
+<svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round><line x1=3 y1=12 x2=21 y2=12></line><line x1=3 y1=6 x2=21 y2=6></line><line x1=3 y1=18 x2=21 y2=18></line></svg>
+</button>
+<div class=booking-container>
+<h1 id=generic-booking-title class=booking-title>Title</h1>
+<div id=generic-cover-image class=video-trailer-container style=background-size:cover;background-position:center;background-repeat:no-repeat></div>
+<div class=booking-details-text style="max-width:100%;margin:0 0 50px 0;text-align:left">
+<h3 style=color:#fff;margin-bottom:15px;text-transform:uppercase;font-size:1.5rem;text-align:left>Booking Details</h3>
+<p id=generic-booking-desc style=font-size:1.1rem;line-height:1.6;color:#ccc>Description...</p>
+<div class=ticket-price-highlight style="display:inline-block;margin-top:30px;border-top:none;border-bottom:1px solid #333;padding-bottom:15px;width:100%">
+price: 15.00€ / person
+</div>
+</div>
+<div class=booking-selectors>
+<select class=ghost-input id=generic-booking-date>
+<option value=Today>Today</option>
+<option value=Tomorrow>Tomorrow</option>
+<option value="Next Day">Next Day</option>
+</select>
+<select class=ghost-input id=generic-booking-time>
+<option value=19:00>19:00</option>
+<option value=20:30>20:30</option>
+<option value=22:00>22:00</option>
+</select>
+<select class=ghost-input id=generic-booking-people>
+<option value=1>1 Person</option>
+<option value=2>2 People</option>
+<option value=3>3 People</option>
+<option value=4>4 People</option>
+<option value=5>5 People</option>
+<option value=6>6 People</option>
+</select>
+</div>
+<div class=booking-checkout>
+<h2 id=generic-booking-total>1 person. 15.00€</h2>
+<button class=ghost-btn id=generic-buy-btn>BUY</button>
+</div>
+</div>
+</div>
+<div id=liumar-content>
+<button id=home-btn class=ghost-btn title="Back to Home">
+<svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+</button>
+<button id=menu-btn class=ghost-btn title=Menu>
+<svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round>
+<line x1=3 y1=12 x2=21 y2=12></line>
+<line x1=3 y1=6 x2=21 y2=6></line>
+<line x1=3 y1=18 x2=21 y2=18></line>
+</svg>
+</button>
+<div id=menu-popup>
+<ul class=menu-list>
+<li class=menu-item data-action=home>Home</li>
+<li class=menu-item data-action=expand data-step=1 data-target=game-room-expanded>Game Room</li>
+<li class=menu-item data-action=expand data-step=2 data-target=cinema-expanded>Cinema</li>
+<li class=menu-item data-action=expand data-step=3 data-target=restaurant-expanded>Restaurant</li>
+<li class=menu-item data-action=goto data-step=4>Contacts</li>
+</ul>
+</div>
+<section class=hero>
+<div class=title-container>
+<span>L</span><span>I</span><span>U</span><span>M</span><span>A</span><span>R</span>
+</div>
+</section>
+<section class=panel id=game-room>
+<button class="ghost-btn open-expanded-btn" data-target=game-room-expanded>GAME ROOM</button>
+</section>
+<section class=panel id=cinema>
+<button class="ghost-btn open-expanded-btn" data-target=cinema-expanded>CINEMA</button>
+</section>
+<section class=panel id=restaurant>
+<button class="ghost-btn open-expanded-btn" data-target=restaurant-expanded>RESTAURANT</button>
+</section>
+<section class=footer-slide>
+<canvas id=footer-canvas></canvas>
+<div class=title-container>
+<span>L</span><span>I</span><span>U</span><span>M</span><span>A</span><span>R</span>
+</div>
+<div class=footer-bottom-row>
+<div class=footer-disclaimer-block>
+<p class=footer-disclaimer-text>
+LIUMAR is an independent creative project for purely demonstrative purposes (Concept Design). It is not affiliated, authorized, or connected in any way to the Fiumara Shopping Center or the companies present in the hub. All trademarks, fictional names, and multimedia content (AI-generated) belong to the project author. No real bookings are made through this site.
+</p>
+</div>
+<div class=footer-content>
+<div class="footer-line socials">
+<a href=#>Instagram</a>
+<a href=#>TikTok</a>
+<a href=#>Facebook</a>
+</div>
+<div class="footer-line address">
+4 Diamond Square, 50127 Florence (FI), Italy
+</div>
+<div class="footer-line copyright">
+&copy; 2026 LIUMAR. All rights reserved.
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>const canvas=document.getElementById("biliardo"),ctx=canvas.getContext("2d"),FRICTION=.993,BALL_COLORS=["#ff9999","#ffe680","#99ccff","#cc99ff","#ffb366","#99e6cc","#d9d9d9"];let balls=[],pockets=[],gameStarted=!1,animationDone=!1,titleTriggered=!1,startTime=0,introDone=!1,tableProgress=0,cueIntroProgress=0;const TARGET_POCKET_INDEX=0;let targetBallIndex=0,trickPath=[],cueState=-1,cueDistance=120,cueX=-1e3,cueY=-1e3,currentScale=1,camCenterX=0,camCenterY=0,liumarActive=!1,isPortrait=!1;function resizeCanvas(){canvas.width=window.innerWidth,canvas.height=window.innerHeight,isPortrait=canvas.height>canvas.width,pockets=isPortrait?[{x:30,y:30},{x:canvas.width-30,y:30},{x:30,y:canvas.height/2},{x:canvas.width-30,y:canvas.height/2},{x:30,y:canvas.height-30},{x:canvas.width-30,y:canvas.height-30}]:[{x:30,y:30},{x:canvas.width/2,y:30},{x:canvas.width-30,y:30},{x:30,y:canvas.height-30},{x:canvas.width/2,y:canvas.height-30},{x:canvas.width-30,y:canvas.height-30}],gameStarted||0!==cueState?gameStarted||-1!==cueState||init(!0):init(!1)}function init(e=!0){balls=[];let t=0;if(isPortrait){createBall(canvas.width/2,.75*canvas.height,"#ffffff",e);let a=.35*canvas.height,n=canvas.width/2;for(let l=0;l<5;l++)for(let i=0;i<=l;i++){let o=BALL_COLORS[t%BALL_COLORS.length];t++,2===l&&1===i&&(o="#555555"),createBall(n-16*l+16*i*2.1,a-33.6*l,o,e)}}else{let a=canvas.height/2,n=.65*canvas.width,l=a;createBall(.25*canvas.width,a,"#ffffff",e);for(let a=0;a<5;a++)for(let i=0;i<=a;i++){let o=BALL_COLORS[t%BALL_COLORS.length];t++,2===a&&1===i&&(o="#555555"),createBall(n+33.6*a,l-16*a+16*i*2.1,o,e)}}targetBallIndex=balls.length-1,balls[targetBallIndex].ghost=!0,camCenterX=canvas.width/2,camCenterY=canvas.height/2}function createBall(e,t,a,n){let l={targetX:e,targetY:t,r:16,color:a,ghost:!1,alpha:1,bounces:0,vx:0,vy:0};n?(l.x=canvas.width/2+50*(Math.random()-.5),l.y=-50-300*Math.random(),l.vx=5*(Math.random()-.5)):(l.x=e,l.y=t,l.bounces=2),balls.push(l)}function drawSolidCircle(e,t,a,n,l=1){a<=.5||l<=0||(ctx.save(),ctx.globalAlpha=l,ctx.fillStyle=n,ctx.beginPath(),ctx.arc(e,t,a,0,2*Math.PI),ctx.fill(),ctx.strokeStyle="#333333",ctx.lineWidth=2,ctx.beginPath(),ctx.arc(e,t,a,0,2*Math.PI),ctx.stroke(),ctx.restore())}function drawTable(e=1){if(ctx.save(),e<1){let t=2*(canvas.width+canvas.height);ctx.setLineDash([t]),ctx.lineDashOffset=t*(1-e)}ctx.strokeStyle="#333333",ctx.lineWidth=2,ctx.strokeRect(30,30,canvas.width-60,canvas.height-60),ctx.strokeRect(33,33,canvas.width-66,canvas.height-66),ctx.strokeRect(27,27,canvas.width-54,canvas.height-54),ctx.setLineDash([]),pockets.forEach((t=>{drawSolidCircle(t.x,t.y,25,"#000000",e)})),ctx.restore()}function drawCue(){if(cueState>=-1&&cueState<4){ctx.save(),ctx.strokeStyle="#333333",ctx.lineWidth=2,ctx.translate(cueX,cueY),isPortrait&&ctx.rotate(-Math.PI/2),ctx.beginPath(),ctx.moveTo(0,0),ctx.lineTo(-400,-3),ctx.stroke(),ctx.beginPath(),ctx.moveTo(0,0),ctx.lineTo(-400,3),ctx.stroke(),ctx.beginPath();for(let e=10;e<380;e+=15)ctx.moveTo(-e,-2),ctx.lineTo(-e-5,2);ctx.stroke(),ctx.restore()}}function resolveCollisions(e=!1){for(let t=0;t<balls.length;t++)for(let a=t+1;a<balls.length;a++){let n=balls[t],l=balls[a];if(!e&&(n.ghost||l.ghost))continue;if(e&&(n.bounces>=2||l.bounces>=2))continue;let i=l.x-n.x,o=l.y-n.y,r=Math.sqrt(i*i+o*o),c=n.r+l.r;if(r<c){let e=c-r,t=i/r,a=o/r;n.x-=t*(e/2),n.y-=a*(e/2),l.x+=t*(e/2),l.y+=a*(e/2);let s=2*(t*(n.vx-l.vx)+a*(n.vy-l.vy))/2;n.vx=n.vx-s*t,n.vy=n.vy-s*a,l.vx=l.vx+s*t,l.vy=l.vy+s*a}}}function startLiumar(){if(liumarActive)return;liumarActive=!0;const e=document.getElementById("biliardo"),t=document.getElementById("liumar-content"),a=document.getElementById("instruction");a&&a.remove(),t.style.display="block",e.style.opacity="0",t.offsetWidth,t.style.opacity="1",setTimeout((()=>{e.remove()}),1500)}function update(){if(animationDone)return;if(ctx.fillStyle="#f4f1ea",ctx.fillRect(0,0,canvas.width,canvas.height),!introDone){let e=!0;tableProgress+=.015,tableProgress>1&&(tableProgress=1);for(let t=0;t<balls.length;t++){let a=balls[t];if(a.bounces<2)a.vy+=.6,a.x+=a.vx,a.y+=a.vy,a.y>canvas.height-a.r&&(a.y=canvas.height-a.r,a.vy*=-.6,a.bounces++,2===a.bounces&&(a.vx=0,a.vy=0)),e=!1;else{let t=a.targetX-a.x,n=a.targetY-a.y;Math.hypot(t,n)>2?(a.x+=.05*t,a.y+=.05*n,e=!1):(a.x=a.targetX,a.y=a.targetY)}}if(resolveCollisions(!0),drawTable(tableProgress),e&&1===tableProgress){cueIntroProgress+=.015,cueIntroProgress>1&&(cueIntroProgress=1);let e=1-Math.pow(1-cueIntroProgress,3);if(isPortrait?(cueX=balls[0].targetX,cueY=balls[0].targetY+cueDistance+300*(1-e)):(cueX=balls[0].targetX-cueDistance-300*(1-e),cueY=balls[0].targetY),drawCue(),1===cueIntroProgress){introDone=!0,cueState=0;let e=document.getElementById("instruction");e&&balls[0]&&(e.style.opacity=1,isPortrait?(e.className="portrait",e.style.left=balls[0].targetX+"px",e.style.top=balls[0].targetY-40+"px",e.style.transform="translate(-50%, -50%)"):(e.className="landscape",e.style.left=balls[0].targetX+30+"px",e.style.top=balls[0].targetY+"px",e.style.transform="translate(0, -50%)"))}}return balls.forEach((e=>drawSolidCircle(e.x,e.y,e.r,e.color,e.alpha))),void requestAnimationFrame(update)}let e=pockets[0],t=balls[targetBallIndex],a=Math.min(canvas.width,canvas.height);if(cueState<=2&&(isPortrait?(cueX=balls[0].x,cueY=balls[0].y+cueDistance):(cueX=balls[0].x-cueDistance,cueY=balls[0].y)),1===cueState)cueDistance+=1.5,cueDistance>200&&(cueState=2);else if(2===cueState){if(cueDistance-=15,cueDistance<=balls[0].r){cueState=3,gameStarted=!0,startTime=performance.now(),isPortrait?(balls[0].vx=5*(Math.random()-.5),balls[0].vy=-45):(balls[0].vx=45,balls[0].vy=0);let a=canvas.width,n=canvas.height,l=16;trickPath=isPortrait?[{x:t.x,y:t.y,t:250},{x:30+l,y:.6*n,t:650},{x:.5*a,y:n-30-l,t:1150},{x:a-30-l,y:.45*n,t:1750},{x:e.x,y:e.y,t:5e3,easeOut:!0}]:[{x:t.x,y:t.y,t:250},{x:.6*a,y:30+l,t:650},{x:a-30-l,y:.5*n,t:1150},{x:.45*a,y:n-30-l,t:1750},{x:e.x,y:e.y,t:5e3,easeOut:!0}]}}else 3===cueState&&(isPortrait?(cueY+=15,cueY>canvas.height+400&&(cueState=4)):(cueX-=15,cueX<-400&&(cueState=4)));if(gameStarted){let n=performance.now()-startTime;if(n<=5e3){let l=n/5e3,i=trickPath.findIndex((e=>e.t>n));if(i>0){let e=trickPath[i-1],a=trickPath[i],l=(n-e.t)/(a.t-e.t),o=l;a.easeOut&&(o=1-Math.pow(1-l,2.5)),t.x=e.x+(a.x-e.x)*o,t.y=e.y+(a.y-e.y)*o}else n>5e3&&(t.x=e.x,t.y=e.y);for(let e=0;e<balls.length;e++){let a=balls[e];if(a!==t){a.vx*=.993,a.vy*=.993,Math.abs(a.vx)<.02&&(a.vx=0),Math.abs(a.vy)<.02&&(a.vy=0),a.x+=a.vx,a.y+=a.vy;let e=30+a.r,t=canvas.width-30-a.r,n=30+a.r,l=canvas.height-30-a.r;a.x<e&&(a.x=e,a.vx*=-1),a.x>t&&(a.x=t,a.vx*=-1),a.y<n&&(a.y=n,a.vy*=-1),a.y>l&&(a.y=l,a.vy*=-1)}}resolveCollisions(),currentScale=1+l*l*(1.2*a/50-1);let o=.08+.1*l;camCenterX+=(t.x-camCenterX)*o,camCenterY+=(t.y-camCenterY)*o}else if(n<=7e3){let l=(n-5e3)/2e3,i=Math.max(0,Math.min((l-.5)/.5,1));t.x=e.x,t.y=e.y,t.r=16*Math.max(0,1-Math.pow(l,1.5)),t.alpha=1-i;for(let e=0;e<balls.length;e++){let a=balls[e];a!==t&&(a.vx*=.993,a.vy*=.993,a.x+=a.vx,a.y+=a.vy)}camCenterX=e.x,camCenterY=e.y;let o=1.2*a/50,r=2*Math.max(canvas.width,canvas.height)/50;currentScale=o+l*l*(r-o),l>.8&&!titleTriggered&&(titleTriggered=!0)}else animationDone=!0,startLiumar()}ctx.save(),ctx.translate(canvas.width/2,canvas.height/2),ctx.scale(currentScale,currentScale),ctx.translate(-camCenterX,-camCenterY),ctx.fillStyle="#f4f1ea",ctx.fillRect(-1e3,-1e3,canvas.width+2e3,canvas.height+2e3),drawTable(),drawCue(),balls.forEach(((e,t)=>{t!==targetBallIndex&&e.r>.5&&drawSolidCircle(e.x,e.y,e.r,e.color,e.alpha)})),t.r>.5&&t.alpha>0&&drawSolidCircle(t.x,t.y,t.r,t.color,t.alpha),ctx.restore(),animationDone||requestAnimationFrame(update)}const fCanvas=document.getElementById("footer-canvas"),fCtx=fCanvas.getContext("2d");let footerBalls=[];const fColors=["#ffffff","#ff9999","#ffe680","#99ccff","#cc99ff","#ffb366","#99e6cc","#d9d9d9","#555555","#ff9999","#ffe680","#99ccff","#cc99ff","#ffb366","#99e6cc"];function initFooterBalls(){fCanvas.width=window.innerWidth,fCanvas.height=window.innerHeight,footerBalls=[];for(let e=0;e<15;e++)footerBalls.push({x:Math.random()*(fCanvas.width-60)+30,y:Math.random()*(fCanvas.height-60)+30,vx:(Math.random()>.5?1:-1)*(2+2*Math.random()),vy:(Math.random()>.5?1:-1)*(2+2*Math.random()),r:16,color:fColors[e]})}function updateFooterBalls(){fCtx.clearRect(0,0,fCanvas.width,fCanvas.height);for(let e=0;e<footerBalls.length;e++){let t=footerBalls[e];t.x+=t.vx,t.y+=t.vy,t.x-t.r<0&&(t.x=t.r,t.vx*=-1),t.x+t.r>fCanvas.width&&(t.x=fCanvas.width-t.r,t.vx*=-1),t.y-t.r<0&&(t.y=t.r,t.vy*=-1),t.y+t.r>fCanvas.height&&(t.y=fCanvas.height-t.r,t.vy*=-1)}for(let e=0;e<footerBalls.length;e++)for(let t=e+1;t<footerBalls.length;t++){let a=footerBalls[e],n=footerBalls[t],l=n.x-a.x,i=n.y-a.y,o=Math.sqrt(l*l+i*i),r=a.r+n.r;if(o<r){let e=Math.atan2(i,l),t=Math.sin(e),c=Math.cos(e),s=a.vx*c+a.vy*t,d=a.vy*c-a.vx*t,u=n.vx*c+n.vy*t,m=n.vy*c-n.vx*t,g=s;s=u,u=g,a.vx=s*c-d*t,a.vy=d*c+s*t,n.vx=u*c-m*t,n.vy=m*c+u*t;let p=r-o;a.x-=Math.cos(e)*p/2,a.y-=Math.sin(e)*p/2,n.x+=Math.cos(e)*p/2,n.y+=Math.sin(e)*p/2}}for(let e=0;e<footerBalls.length;e++){let t=footerBalls[e];fCtx.beginPath(),fCtx.arc(t.x,t.y,t.r,0,2*Math.PI),fCtx.fillStyle=t.color,fCtx.fill(),fCtx.strokeStyle="#333333",fCtx.lineWidth=2,fCtx.stroke()}requestAnimationFrame(updateFooterBalls)}const titleObserver=new ResizeObserver((e=>{e.forEach((e=>{const t=e.target,a=t.querySelector(".item-title");a&&(a.style.animation="none",a.style.transform="translateX(0)",requestAnimationFrame((()=>{const e=a.scrollWidth-t.clientWidth;if(e>2){const t=Math.max(3,e/20);a.style.setProperty("--scroll-amount",`-${e}px`),a.style.animation=`text-marquee ${t}s linear infinite alternate`}})))}))}));window.addEventListener("resize",(()=>{resizeCanvas(),initFooterBalls()})),document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll(".item-title-wrapper").forEach((e=>{titleObserver.observe(e)}))})),resizeCanvas(),update(),initFooterBalls(),updateFooterBalls();let liumarStep=0;const maxSteps=4;let isAnimatingSteps=!1,isExpandedOpen=!1,hasSeenGameRoom=!1;const homeBtn=document.getElementById("home-btn"),menuBtn=document.getElementById("menu-btn"),menuPopup=document.getElementById("menu-popup");function updateLiumarUI(){const e=document.getElementById("game-room"),t=document.getElementById("cinema"),a=document.getElementById("restaurant"),n=document.querySelector(".footer-slide");e.style.transform=liumarStep>=1?"translateY(0)":"translateY(100%)",t.style.transform=liumarStep>=2?"translateY(0)":"translateY(100%)",a.style.transform=liumarStep>=3?"translateY(0)":"translateY(100%)",n.style.transform=liumarStep>=4?"translateY(0)":"translateY(100%)",liumarStep>=1&&(hasSeenGameRoom=!0),0===liumarStep?(homeBtn.classList.remove("visible"),menuBtn.classList.add("visible"),menuBtn.classList.remove("dark-mode"),menuPopup.classList.remove("dark-mode")):4===liumarStep?(homeBtn.classList.add("visible"),homeBtn.classList.add("dark-mode"),menuBtn.classList.add("visible"),menuBtn.classList.add("dark-mode"),menuPopup.classList.add("dark-mode")):(homeBtn.classList.add("visible"),homeBtn.classList.remove("dark-mode"),menuBtn.classList.add("visible"),menuBtn.classList.remove("dark-mode"),menuPopup.classList.remove("dark-mode"))}function closeAllExpandedViews(){document.querySelectorAll(".expanded-view").forEach((e=>{e.style.opacity="0",setTimeout((()=>{e.style.display="none"}),800)})),isExpandedOpen=!1}function nextStep(){liumarStep<4&&!isAnimatingSteps&&!isExpandedOpen&&(isAnimatingSteps=!0,liumarStep++,updateLiumarUI(),setTimeout((()=>{isAnimatingSteps=!1}),800))}function prevStep(){liumarStep>0&&!isAnimatingSteps&&!isExpandedOpen&&(isAnimatingSteps=!0,liumarStep--,updateLiumarUI(),setTimeout((()=>{isAnimatingSteps=!1}),800))}function goToHome(){closeAllExpandedViews(),bookingView&&(bookingView.style.opacity="0",setTimeout((()=>{bookingView.style.display="none"}),800)),genericBookingView&&(genericBookingView.style.opacity="0",setTimeout((()=>{genericBookingView.style.display="none"}),800)),menuPopup.classList.remove("open"),isExpandedOpen=!1,0!==liumarStep&&(liumarStep=0,updateLiumarUI())}homeBtn.addEventListener("click",goToHome),menuBtn.addEventListener("click",(()=>{menuPopup.classList.toggle("open")})),window.addEventListener("click",(e=>{if(!liumarActive&&0===cueState){cueState=1;let e=document.getElementById("instruction");e&&(e.style.opacity=0)}!liumarActive||menuBtn.contains(e.target)||menuPopup.contains(e.target)||menuPopup.classList.remove("open")})),window.addEventListener("wheel",(e=>{if(liumarActive)isAnimatingSteps||isExpandedOpen||(e.deltaY>0?nextStep():e.deltaY<0&&prevStep());else if(0===cueState){cueState=1;let e=document.getElementById("instruction");e&&(e.style.opacity=0)}}));let touchStartY=0;window.addEventListener("touchstart",(e=>{if(liumarActive)touchStartY=e.touches[0].clientY;else if(0===cueState){cueState=1;let e=document.getElementById("instruction");e&&(e.style.opacity=0)}})),window.addEventListener("touchend",(e=>{if(!liumarActive||isAnimatingSteps||isExpandedOpen)return;let t=touchStartY-e.changedTouches[0].clientY;t>50?nextStep():t<-50&&prevStep()}));const openBtns=document.querySelectorAll(".open-expanded-btn"),closeBtns=document.querySelectorAll(".close-expanded-btn");openBtns.forEach((e=>{e.addEventListener("click",(e=>{const t=e.target.dataset.target,a=document.getElementById(t);a&&(isExpandedOpen=!0,a.style.display="block",a.offsetWidth,a.style.opacity="1")}))})),closeBtns.forEach((e=>{e.addEventListener("click",(e=>{const t=e.target.closest(".expanded-view");t&&(t.style.opacity="0",setTimeout((()=>{t.style.display="none",isExpandedOpen=!1}),800))}))})),document.querySelectorAll(".item-title-wrapper").forEach((e=>{titleObserver.observe(e)}));const bookingView=document.getElementById("booking-view"),seatGridWrapper=document.getElementById("seat-grid"),bookingTotalText=document.getElementById("booking-total"),PREZZO_BIGLIETTO=10;let targetScroll=0,currentScroll=0,isScrolling=!1;function lerpScroll(){currentScroll+=.03*(targetScroll-currentScroll),bookingView.scrollTop=currentScroll,Math.abs(targetScroll-currentScroll)>.5?requestAnimationFrame(lerpScroll):(bookingView.scrollTop=targetScroll,currentScroll=targetScroll,isScrolling=!1)}function generateSeats(){seatGridWrapper.innerHTML="";for(let e=0;e<10;e++){let e=document.createElement("div");e.className="seat-row";for(let t=0;t<16;t++){if(7===t||8===t){let t=document.createElement("div");t.className="seat-aisle",e.appendChild(t);continue}let a=document.createElement("div");a.className="seat",Math.random()<.3&&a.classList.add("occupied"),a.addEventListener("click",(function(){this.classList.contains("occupied")||(this.classList.toggle("selected"),updateBookingTotal())})),e.appendChild(a)}seatGridWrapper.appendChild(e)}}function updateBookingTotal(){const e=document.querySelectorAll("#seat-grid .seat.selected").length,t=(10*e).toFixed(2),a=1===e?"seat":"seats";bookingTotalText.innerText=`${e} ${a}. ${t}€`}bookingView.addEventListener("wheel",(e=>{const t=bookingView.scrollHeight-bookingView.clientHeight;t<=0||(e.preventDefault(),targetScroll+=e.deltaY,targetScroll=Math.max(0,Math.min(targetScroll,t)),isScrolling||(isScrolling=!0,requestAnimationFrame(lerpScroll)))}),{passive:!1});const cinemaCols=document.querySelectorAll("#cinema-expanded .expanded-col");cinemaCols.forEach((e=>{e.addEventListener("click",(function(e){e.stopPropagation();const t=this.querySelector(".item-title").innerText,a=this.querySelector(".item-details p").innerText,n=this.querySelector(".expanded-poster").style.backgroundImage,l=this.dataset.trailer;document.getElementById("booking-title").innerText=t,document.getElementById("booking-desc").innerText=a,document.getElementById("booking-poster").style.backgroundImage=n,document.getElementById("cinema-trailer").style.backgroundImage=`url('${l}')`,generateSeats(),updateBookingTotal(),bookingView.style.display="block",bookingView.offsetWidth,bookingView.style.opacity="1",isExpandedOpen=!0,targetScroll=0,currentScroll=0,bookingView.scrollTop=0}))})),document.querySelector(".close-booking-btn").addEventListener("click",goToHome),document.body.appendChild(menuPopup),document.getElementById("booking-menu-btn").addEventListener("click",(e=>{e.stopPropagation(),menuPopup.classList.toggle("open")})),document.getElementById("buy-btn").addEventListener("click",(e=>{e.preventDefault()})),document.querySelectorAll(".menu-item").forEach((e=>{let t=e.cloneNode(!0);e.parentNode.replaceChild(t,e),t.addEventListener("click",(function(e){let t=this.dataset.action,a=parseInt(this.dataset.step),n=this.dataset.target;if(document.getElementById("menu-popup").classList.remove("open"),"home"!==t){if(document.querySelectorAll(".expanded-view").forEach((e=>{e.style.opacity="0",e.style.display="none"})),isExpandedOpen=!1,a!==liumarStep&&(liumarStep=a,updateLiumarUI()),"expand"===t&&n){let e=document.getElementById(n);e&&(isExpandedOpen=!0,e.style.display="block",e.offsetWidth,e.style.opacity="1",e.scrollTop=0)}}else goToHome()}))}));const genericBookingView=document.getElementById("generic-booking-view"),genericPeopleSelect=document.getElementById("generic-booking-people"),genericTotalText=document.getElementById("generic-booking-total"),GENERIC_PRICE=15;function updateGenericTotal(){const e=parseInt(genericPeopleSelect.value),t=(15*e).toFixed(2),a=1===e?"person":"people";genericTotalText.innerText=`${e} ${a}. ${t}€`}genericPeopleSelect.addEventListener("change",updateGenericTotal);const genericCols=document.querySelectorAll("#game-room-expanded .expanded-col, #restaurant-expanded .expanded-col");genericCols.forEach((e=>{e.addEventListener("click",(function(e){e.stopPropagation();const t=this.querySelector(".item-title").innerText,a=this.querySelector(".item-details p").innerText,n=this.querySelector(".expanded-poster").style.backgroundImage;document.getElementById("generic-booking-title").innerText=t,document.getElementById("generic-booking-desc").innerText=a,document.getElementById("generic-cover-image").style.backgroundImage=n,genericPeopleSelect.value="1",updateGenericTotal(),genericBookingView.style.display="block",genericBookingView.offsetWidth,genericBookingView.style.opacity="1",isExpandedOpen=!0,targetScrollGeneric=0,currentScrollGeneric=0,genericBookingView.scrollTop=0}))})),document.querySelectorAll("#generic-booking-view .close-generic-booking-btn").forEach((e=>{e.addEventListener("click",goToHome)})),document.getElementById("generic-booking-menu-btn").addEventListener("click",(e=>{e.stopPropagation(),menuPopup.classList.toggle("open")})),document.getElementById("generic-buy-btn").addEventListener("click",(e=>{e.preventDefault()}));let targetScrollGeneric=0,currentScrollGeneric=0,isScrollingGeneric=!1;function lerpScrollGeneric(){currentScrollGeneric+=.03*(targetScrollGeneric-currentScrollGeneric),genericBookingView.scrollTop=currentScrollGeneric,Math.abs(targetScrollGeneric-currentScrollGeneric)>.5?requestAnimationFrame(lerpScrollGeneric):(genericBookingView.scrollTop=targetScrollGeneric,currentScrollGeneric=targetScrollGeneric,isScrollingGeneric=!1)}genericBookingView.addEventListener("wheel",(e=>{const t=genericBookingView.scrollHeight-genericBookingView.clientHeight;t>0&&(e.preventDefault(),targetScrollGeneric+=e.deltaY,targetScrollGeneric=Math.max(0,Math.min(targetScrollGeneric,t)),isScrollingGeneric||(isScrollingGeneric=!0,requestAnimationFrame(lerpScrollGeneric)))}),{passive:!1})</script>
+</body>
+</html>
